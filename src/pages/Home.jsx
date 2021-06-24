@@ -1,31 +1,46 @@
+import { useHistory } from 'react-router-dom';
+
 import logo from '../assets/logo.png';
-import arrow from '../assets/arrow-black.svg';
 import instagramLogo from '../assets/instagram-logo.svg';
+import arrow from '../assets/arrow-black.svg';
 
 import '../styles/home.scss';
+import { Button } from '../components/Button';
 
 export function Home() {
+  const history = useHistory();
+
+  function handleClick() {
+    history.push("/register");
+  }
+
   return (
     <div id="page-home">
       <img src={logo} alt="Logo Oceaning" />
-      <h1>Time de desenvolvimento</h1>
-      <h2>Sua evolução começa agora</h2>
-      <p>
-        Faça parte dessa jornada junto com a Oceaning e conquiste o mundo com
-        suas habilidades de programação.
-      </p>
 
-      <button>
-        Começar agora <img src={arrow} alt="arrow" />
-      </button>
+      <main>
+        <h1>Time de desenvolvimento</h1>
+        <h3>Sua evolução começa agora</h3>
+        <p>
+          Faça parte dessa jornada junto com a Oceaning e conquiste o mundo com
+          suas habilidades de programação.
+        </p>
 
-      <div className="share">
+        <Button onClick={handleClick}>
+          Começar agora <img src={arrow} alt="arrow" />
+        </Button>
+      </main>
+
+      <footer>
         <img src={instagramLogo} alt="Logo Instagram" />
         <div>
           <span>compartilhe</span>
-          <a href="#">@theoceaning</a>
+          <a
+            href="https://instagram.com/theoceaning"
+            target="_blank"
+          >@theoceaning</a>
         </div>
-      </div>
+      </footer>
     </div>
   );
 }
