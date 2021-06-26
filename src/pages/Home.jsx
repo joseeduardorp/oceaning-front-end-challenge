@@ -1,11 +1,12 @@
 import { useHistory } from 'react-router-dom';
 
 import logo from '../assets/logo.png';
-import instagramLogo from '../assets/instagram-logo.svg';
 import arrow from '../assets/arrow-black.svg';
 
+import { Button } from '../components/Button/index';
+import { Share } from '../components/Share/index';
+
 import '../styles/home.scss';
-import { Button } from '../components/Button';
 
 export function Home() {
   const history = useHistory();
@@ -16,11 +17,13 @@ export function Home() {
 
   return (
     <div id="page-home">
-      <img src={logo} alt="Logo Oceaning" />
+      <header>
+        <img src={logo} alt="Logo Oceaning" />
+      </header>
 
       <main>
         <h1>Time de desenvolvimento</h1>
-        <h3>Sua evolução começa agora</h3>
+        <h2>Sua evolução começa agora</h2>
         <p>
           Faça parte dessa jornada junto com a Oceaning e conquiste o mundo com
           suas habilidades de programação.
@@ -32,14 +35,7 @@ export function Home() {
       </main>
 
       <footer>
-        <img src={instagramLogo} alt="Logo Instagram" />
-        <div>
-          <span>compartilhe</span>
-          <a
-            href="https://instagram.com/theoceaning"
-            target="_blank"
-          >@theoceaning</a>
-        </div>
+        <Share />
       </footer>
     </div>
   );

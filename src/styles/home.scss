@@ -2,26 +2,52 @@
   padding: 4rem;
   height: 100vh;
   text-align: center;
+  position: relative;
 
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  > img {
+  header {
+    width: 100%;
+    height: 4rem;
     margin: 4rem 0 9rem;
-    width: 75%;
+
+    > img {
+      height: 100%;
+    }
   }
 
   main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
     h1 {
       font-size: 2.6rem;
       background: linear-gradient(to right, #ffda15, #ffa115);
       background-clip: text;
       -webkit-text-fill-color: transparent;
       line-height: 2.9rem;
+
+      &.success {
+        font-size: 3.8rem;
+      }
     }
 
     h2 {
+      font-size: 3.8rem;
+      font-weight: 800;
+      line-height: 4rem;
+      color: #fff;
+      margin: 2.5rem 0;
+
+      &.success {
+        font-size: 3.1rem;
+      }
+    }
+
+    h3 {
       font-size: 2rem;
       background: linear-gradient(to right, #ffda15, #ffa115);
       background-clip: text;
@@ -29,57 +55,29 @@
       line-height: 2.9rem;
     }
 
-    h3 {
-      font-size: 3.8rem;
+    h4 {
+      font-size: 3.4rem;
       font-weight: 800;
       line-height: 4rem;
       color: #fff;
-      margin: 2.5rem 0;
+      margin: 1.7rem 0;
     }
 
-    p {
+    > p {
       font-weight: 500;
       font-size: 1.4rem;
       line-height: 2.4rem;
       color: #aaa;
     }
 
-    button {
+    > button {
       margin-top: 6rem;
     }
-
   }
 
   footer {
     margin-top: auto;
     display: flex;
-
-    img {
-      margin-right: 1.5rem;
-      height: 5rem;
-    }
-
-    div {
-      font-weight: 600;
-      color: #fff;
-      text-align: left;
-      
-      span {
-        display: block;
-        font-size: 1.4rem;
-      }
-
-      a {
-        text-decoration: none;
-        font-size: 2rem;
-        color: #fff;
-      }
-    }
+    gap: 1.5rem;
   }
 }
-/*
-  titulo => linear-gradient(to right ,#ffda15, #ffa115);
-  paragrafo => color: #aaa6bf;
-  input => border-bottom: .5rem solid #363443;
-  input:focus => #15F7D9;
-*/

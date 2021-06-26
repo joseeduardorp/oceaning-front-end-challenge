@@ -1,0 +1,32 @@
+.skills-container {
+  margin-top: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+footer.skills-modal {
+  width: 100%;
+  background: #201F26;
+  padding: 2rem;
+  border-radius: 2rem 2rem 0 0;
+
+  position: absolute;
+  bottom: 0;
+
+  span {
+    display: block;
+    width: 100%;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #777584;
+  }
+
+  &.skills {
+    background: linear-gradient(to right, #ffda15, #ffa115);
+    
+    span {
+      color: #000;
+    }
+  }
+}
