@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import cx from 'classnames';
 
-import skills from '../data';
+import skillsList from '../data';
 
 import { Button } from '../components/Button/index';
 import { Skill } from '../components/Skill/index';
@@ -9,29 +10,47 @@ import { Skill } from '../components/Skill/index';
 import logo from '../assets/logo.png';
 import arrow from '../assets/arrow-black.svg';
 import check from '../assets/check.svg';
+import chevronsUp from '../assets/chevrons-up.svg';
+import chevronsDown from '../assets/chevrons-down.svg';
 
 import '../styles/home.scss';
 import '../styles/skills.scss';
 
 export function Skills() {
   const [filteredSkills, setFilteredSkills] = useState([]);
-  const [skill, setSkill] = useState('');
+  const [selectedSkills, setSelectedSkills] = useState([]);
+  const [skillInputValue, setSkillInputValue] = useState('');
+  const [erro, setErro] = useState(false);
   const history = useHistory();
+
+  const [activeModal, setActiveModal] = useState(false);
 
   function handleSubmitSkills(event) {
     event.preventDefault();
 
+    if (selectedSkills.length === 0) {
+      setErro(true);
+      return;
+    }
+
     history.push('/success');
   }
 
-  function handleChange(event) {
+  function handleChangeInput(event) {
     const value = event.target.value;
-    setSkill(value);
+    setSkillInputValue(value);
 
-    const filtered = skills.filter((skill) => {
-      return skill.charAt(0).toLocaleLowerCase() === value.charAt(0).toLocaleLowerCase();
+    const filtered = skillsList.filter((skillItem) => {
+      return skillItem.charAt(0).toLocaleLowerCase() === value.charAt(0).toLocaleLowerCase();
     });
+
     setFilteredSkills(filtered);
+  }
+
+  function handleSelectSkill(newSkill) {
+    setSelectedSkills([...selectedSkills, newSkill]);
+    setSkillInputValue('');
+    setFilteredSkills([]);
   }
 
   return (
@@ -51,19 +70,23 @@ export function Skills() {
           <input
             type="text"
             placeholder="Digite uma habilidade"
-            onChange={handleChange}
-            value={skill}
+            className={erro ? "erro" : ""}
+            onChange={handleChangeInput}
+            onFocus={() => setErro(false)}
+            value={skillInputValue}
           />
 
+          {erro && (<p>Insira, ao menos uma habilidade</p>)}
+
           <div className="skills-container">
-            {filteredSkills.map((skill, index) => {
+            {filteredSkills.map((value, index) => {
               return (
                 <Skill
                   key={index}
                   type="button"
-                  onClick={() => console.log(skill)}
+                  onClick={() => handleSelectSkill(value)}
                 >
-                  {skill} <img src={check} alt="Checkmark" />
+                  {value} <img src={check} alt="Checkmark" />
                 </Skill>
               );
             })}
@@ -75,8 +98,25 @@ export function Skills() {
         </form>
       </main>
 
-      <footer className="skills-modal">
-        <span>Nenhuma habilidade selecionada</span>
+      <footer
+        className={cx(
+          'skills-modal',
+          { 'skills': selectedSkills.length > 0 },
+          { 'modal-actived': activeModal }
+        )}
+        onClick={() => selectedSkills.length > 0 && setActiveModal(!activeModal)}
+      >
+        {selectedSkills.length > 0 ? (
+          <span>
+            {selectedSkills.length} Habilidade(s) adicionada(s)
+            <strong>
+              {activeModal ? "fechar" : "ver habilidades"}
+              <img src={activeModal ? chevronsDown : chevronsUp} alt="Chevrons up"/>
+            </strong>
+          </span>
+        ) : (
+          <span>Nenhuma habilidade selecionada</span>
+        )}
       </footer>
     </div>
   );

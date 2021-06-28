@@ -14,8 +14,9 @@ footer.skills-modal {
   position: absolute;
   bottom: 0;
 
+  transition: bottom .3s;
+
   span {
-    display: block;
     width: 100%;
     font-size: 1.4rem;
     font-weight: 500;
@@ -24,9 +25,29 @@ footer.skills-modal {
 
   &.skills {
     background: linear-gradient(to right, #ffda15, #ffa115);
+    justify-content: space-between;
     
     span {
       color: #000;
+      font-size: 1.2rem;
+      font-weight: 600;
+      
+      display: flex;
+      justify-content: space-between;
+
+      strong {
+        font-weight: 700;
+        text-transform: uppercase;
+
+        img {
+          height: 1.2rem;
+          margin-left: .5rem;
+        }
+      }
     }
+  }
+
+  &.modal-actived {
+    bottom: 10rem;
   }
 }

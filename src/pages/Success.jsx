@@ -1,12 +1,22 @@
-import logo from '../assets/logo.png';
-import arrow from '../assets/arrow-white.svg';
+import { useHistory } from 'react-router-dom';
 
 import { Share } from '../components/Share/index';
+
+import logo from '../assets/logo.png';
+import arrow from '../assets/arrow-white.svg';
 
 import '../styles/home.scss';
 import '../styles/success.scss';
 
 export function Success() {
+  const history = useHistory();
+
+  function handleClick(event) {
+    event.preventDefault();
+
+    history.push('/list');
+  }
+
   return (
     <div id="page-home" className="success">
       <header>
@@ -21,7 +31,10 @@ export function Success() {
           suas habilidades de programação.
         </p>
 
-        <button className="all">
+        <button
+          className="all"
+          onClick={event => handleClick(event)}
+        >
           ver todos <img src={arrow} alt="arrow" />
         </button>
       </main>
