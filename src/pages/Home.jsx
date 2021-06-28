@@ -6,7 +6,7 @@ import arrow from '../assets/arrow-black.svg';
 import { Button } from '../components/Button/index';
 import { Share } from '../components/Share/index';
 
-import '../styles/home.scss';
+import '../styles/pages/home.scss';
 
 export function Home() {
   const history = useHistory();

@@ -1,20 +1,18 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import cx from 'classnames';
 
 import skillsList from '../data';
 
 import { Button } from '../components/Button/index';
 import { Skill } from '../components/Skill/index';
+import { SkillsList } from '../components/SkillsList/index';
 
 import logo from '../assets/logo.png';
 import arrow from '../assets/arrow-black.svg';
 import check from '../assets/check.svg';
-import chevronsUp from '../assets/chevrons-up.svg';
-import chevronsDown from '../assets/chevrons-down.svg';
 
-import '../styles/home.scss';
-import '../styles/skills.scss';
+import '../styles/pages/home.scss';
+import '../styles/pages/skills.scss';
 
 export function Skills() {
   const [filteredSkills, setFilteredSkills] = useState([]);
@@ -51,6 +49,10 @@ export function Skills() {
     setSelectedSkills([...selectedSkills, newSkill]);
     setSkillInputValue('');
     setFilteredSkills([]);
+  }
+
+  function handleActiveModal() {
+    setActiveModal(!activeModal);
   }
 
   return (
@@ -98,26 +100,11 @@ export function Skills() {
         </form>
       </main>
 
-      <footer
-        className={cx(
-          'skills-modal',
-          { 'skills': selectedSkills.length > 0 },
-          { 'modal-actived': activeModal }
-        )}
-        onClick={() => selectedSkills.length > 0 && setActiveModal(!activeModal)}
-      >
-        {selectedSkills.length > 0 ? (
-          <span>
-            {selectedSkills.length} Habilidade(s) adicionada(s)
-            <strong>
-              {activeModal ? "fechar" : "ver habilidades"}
-              <img src={activeModal ? chevronsDown : chevronsUp} alt="Chevrons up"/>
-            </strong>
-          </span>
-        ) : (
-          <span>Nenhuma habilidade selecionada</span>
-        )}
-      </footer>
+      <SkillsList
+        list={selectedSkills}
+        isActived={activeModal}
+        onActiveModal={handleActiveModal}
+      />
     </div>
   );
 }

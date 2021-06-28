@@ -5,8 +5,8 @@ import { Share } from '../components/Share/index';
 import logo from '../assets/logo.png';
 import arrow from '../assets/arrow-white.svg';
 
-import '../styles/home.scss';
-import '../styles/success.scss';
+import '../styles/pages/home.scss';
+import '../styles/pages/success.scss';
 
 export function Success() {
   const history = useHistory();

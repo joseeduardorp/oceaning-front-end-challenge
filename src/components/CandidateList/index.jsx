@@ -4,7 +4,7 @@ import arrow from '../../assets/arrow-black.svg';
 
 import './styles.scss';
 
-export function Modal({ list, isActived, activeModal }) {
+export function CandidateList({ list, isActived, activeModal }) {
   return (
     <div className={`candidatos-lista ${isActived ? "actived" : ""}`}>
       <ul>

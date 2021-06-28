@@ -6,12 +6,13 @@ import { Button } from '../components/Button/index';
 import logo from '../assets/logo.png';
 import arrow from '../assets/arrow-black.svg';
 
-import '../styles/home.scss';
-import '../styles/register.scss';
+import '../styles/pages/home.scss';
+import '../styles/pages/register.scss';
 
 export function Register() {
   const [erro, setErro] = useState(false);
   const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const history = useHistory();
 
   function handleSubmitName(event) {
@@ -26,7 +27,13 @@ export function Register() {
   }
 
   function handleChange(event) {
-    setName(event.target.value);
+    const field = event.target.id;
+
+    if (field === "name") {
+      setName(event.target.value);
+    } else {
+      setEmail(event.target.value);
+    }
   }
 
   return (
@@ -44,15 +51,30 @@ export function Register() {
         </p>
         
         <form onSubmit={handleSubmitName}>
-          <input
-            type="text"
-            placeholder="Digite seu nome"
-            className={erro ? "erro" : ""}
-            onFocus={() => setErro(false)}
-            onChange={handleChange}
-            value={name}
-          />
-
+          <label htmlFor="nome">
+            <input
+              id="nome"
+              type="text"
+              placeholder="Digite seu nome"
+              className={erro ? "erro" : ""}
+              onFocus={() => setErro(false)}
+              onChange={handleChange}
+              value={name}
+            />
+          </label>
+          {/*
+          <label htmlFor="email">
+            <input
+              id="email"
+              type="email"
+              placeholder="Digite seu email"
+              className={erro ? "erro" : ""}
+              onFocus={() => setErro(false)}
+              onChange={handleChange}
+              value={email}
+            />
+          </label>
+          */}
           {erro && (<p>Preencha este campo</p>)}
 
           <Button type="submit">

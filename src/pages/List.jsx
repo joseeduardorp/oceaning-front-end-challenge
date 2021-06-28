@@ -1,9 +1,9 @@
-import { Modal } from '../components/Modal';
+import { CandidateList } from '../components/CandidateList';
 
 import logo from '../assets/logo.png';
 
-import '../styles/home.scss';
-import '../styles/skills.scss';
+import '../styles/pages/home.scss';
+import '../styles/pages/skills.scss';
 
 const candidatos = [
   {
@@ -61,7 +61,7 @@ export function List() {
         <h3>4 desenvolvedores encontrados</h3>
       </main>
 
-      <Modal
+      <CandidateList
         list={candidatos}
         isActived={true}
       />
