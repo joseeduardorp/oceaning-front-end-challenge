@@ -24,5 +24,5 @@ Projeto desenvolvido como parte do processo seletivo para da [Oceaning](https://
 
 ## Informações adicionais
 
-- Projeto incompleto
+- Projeto funcionando(parcialmente)
 - Você pode encontrar o design do projeto neste [link](https://www.figma.com/file/WUbF7kWrb81Tbr5zIZ1KLp/Front-end-%7C-Oceaning-Jun-2021?node-id=0%3A1).
