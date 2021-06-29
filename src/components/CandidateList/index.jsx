@@ -6,7 +6,7 @@ import './styles.scss';
 
 export function CandidateList({ list, isActived, activeModal }) {
   return (
-    <div className={`candidatos-lista ${isActived ? "actived" : ""}`}>
+    <div className={`candidate-list ${isActived ? "actived" : ""}`}>
       <ul>
         {list.map(({ name, email, publishedAt, skills}, index) => {
           return (

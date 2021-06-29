@@ -1,9 +1,9 @@
 import { CandidateList } from '../components/CandidateList';
+import { Share } from '../components/Share';
 
 import logo from '../assets/logo.png';
 
-import '../styles/pages/home.scss';
-import '../styles/pages/skills.scss';
+import '../styles/pages/list.scss';
 
 const candidatos = [
   {
@@ -52,7 +52,7 @@ const candidatos = [
 
 export function List() {
   return (
-    <div id="page-home">
+    <div id="page-list">
       <header>
         <img src={logo} alt="Logo Oceaning" />
       </header>
@@ -65,6 +65,10 @@ export function List() {
         list={candidatos}
         isActived={true}
       />
+
+      <footer>
+        <Share />
+      </footer>
     </div>
   );
 }

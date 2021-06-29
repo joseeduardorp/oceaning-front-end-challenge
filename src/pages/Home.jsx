@@ -22,13 +22,15 @@ export function Home() {
       </header>
 
       <main>
-        <h1>Time de desenvolvimento</h1>
-        <h2>Sua evolução começa agora</h2>
-        <p>
-          Faça parte dessa jornada junto com a Oceaning e conquiste o mundo com
-          suas habilidades de programação.
-        </p>
-
+        <div>
+          <h1>Time de desenvolvimento</h1>
+          <h2>Sua evolução começa agora</h2>
+          <p>
+            Faça parte dessa jornada junto com a Oceaning e conquiste o mundo com
+            suas habilidades de programação.
+          </p>
+        </div>
+        
         <Button onClick={handleClick}>
           Começar agora <img src={arrow} alt="arrow" />
         </Button>

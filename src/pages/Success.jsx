@@ -5,7 +5,6 @@ import { Share } from '../components/Share/index';
 import logo from '../assets/logo.png';
 import arrow from '../assets/arrow-white.svg';
 
-import '../styles/pages/home.scss';
 import '../styles/pages/success.scss';
 
 export function Success() {
@@ -18,23 +17,22 @@ export function Success() {
   }
 
   return (
-    <div id="page-home" className="success">
+    <div id="page-success">
       <header>
         <img src={logo} alt="Logo Oceaning" />
       </header>
 
       <main>
-        <h1 className="success">Parabéns</h1>
-        <h2 className="success">Suas habilidades foram enviadas</h2>
-        <p>
-          Faça parte dessa jornada junto com a Oceaning e conquiste o mundo com
-          suas habilidades de programação.
-        </p>
+        <div>
+          <h1 className="success">Parabéns</h1>
+          <h2 className="success">Suas habilidades foram enviadas</h2>
+          <p>
+            Faça parte dessa jornada junto com a Oceaning e conquiste o mundo com
+            suas habilidades de programação.
+          </p>
+        </div>
 
-        <button
-          className="all"
-          onClick={event => handleClick(event)}
-        >
+        <button onClick={event => handleClick(event)}>
           ver todos <img src={arrow} alt="arrow" />
         </button>
       </main>

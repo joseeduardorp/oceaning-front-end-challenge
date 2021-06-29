@@ -23,7 +23,7 @@ button {
   }
 }
 
-// Responsividade 
+// Tablet 
 @media (min-width: 768px) {
   :root {
     font-size: 75%;
@@ -35,14 +35,25 @@ button {
   }
 }
 
+// Desktop
 @media (min-width: 1024px) {
   :root {
     font-size: 87.5%;
+  }
+
+  body {
+    background: url('../assets/background.jpg') no-repeat;
+    background-size: cover;
   }
 }
 
 @media (min-width: 1440px) {
   :root {
     font-size: 100%;
+  }
+
+  body {
+    background: url('../assets/background.jpg') no-repeat;
+    background-size: cover;
   }
 }

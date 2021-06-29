@@ -6,12 +6,12 @@ import skillsList from '../data';
 import { Button } from '../components/Button/index';
 import { Skill } from '../components/Skill/index';
 import { SkillsList } from '../components/SkillsList/index';
+import { Share } from '../components/Share/index';
 
 import logo from '../assets/logo.png';
 import arrow from '../assets/arrow-black.svg';
 import check from '../assets/check.svg';
 
-import '../styles/pages/home.scss';
 import '../styles/pages/skills.scss';
 
 export function Skills() {
@@ -56,29 +56,34 @@ export function Skills() {
   }
 
   return (
-    <div id="page-home">
+    <div id="page-skills">
       <header>
         <img src={logo} alt="Logo Oceaning" />
       </header>
 
-      <main style={{ textAlign: "left"}}>
-        <h3>Olá, fulano</h3>
-        <h4>Quais são suas habilidades?</h4>
-        <p>
-          Nos diga algumas de suas habilidades técnicas para que possamos avaliá-lo.
-        </p>
+      <main className="register">
+        <div>
+          <h3>Olá, fulano</h3>
+          <h4>Quais são suas habilidades?</h4>
+          <p>
+            Nos diga algumas de suas habilidades técnicas para que possamos avaliá-lo.
+          </p>
+        </div>
 
         <form onSubmit={handleSubmitSkills}>
-          <input
-            type="text"
-            placeholder="Digite uma habilidade"
-            className={erro ? "erro" : ""}
-            onChange={handleChangeInput}
-            onFocus={() => setErro(false)}
-            value={skillInputValue}
-          />
+          <label htmlFor="skill">
+            <input
+              id="skill"
+              type="text"
+              placeholder="Digite uma habilidade"
+              className={erro ? "erro" : ""}
+              onChange={handleChangeInput}
+              onFocus={() => setErro(false)}
+              value={skillInputValue}
+            />
 
-          {erro && (<p>Insira, ao menos uma habilidade</p>)}
+            {erro && (<p>Insira, ao menos uma habilidade</p>)}
+          </label>
 
           <div className="skills-container">
             {filteredSkills.map((value, index) => {
@@ -105,6 +110,10 @@ export function Skills() {
         isActived={activeModal}
         onActiveModal={handleActiveModal}
       />
+
+      <footer>
+        <Share />
+      </footer>
     </div>
   );
 }

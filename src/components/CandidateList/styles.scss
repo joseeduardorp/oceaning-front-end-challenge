@@ -1,4 +1,5 @@
-.candidatos-lista {
+// Mobile
+.candidate-list {
   padding: 3rem;
   background: #fff;
   color: #000;
@@ -12,6 +13,19 @@
 
   position: absolute;
   bottom: 0;
+
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background-color: #777584;
+    border-radius: 20px;
+  }
 
   > button {
     background: transparent;
@@ -30,6 +44,7 @@
       list-style: none;
       border-bottom: 1px solid #DBD9E3;
       padding: 1.5rem 0;
+      text-align: left;
 
       display: flex;
       flex-direction: column;
@@ -90,5 +105,79 @@
     position: fixed;
     bottom: 0;
     left: 0;
+  }
+}
+
+// Tablet
+@media (min-width: 768px) {
+  .candidate-list {
+    ul {
+      li {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        div {
+          button {
+            margin-left: 1rem;
+          }
+        }
+      }
+    }
+
+    > div {
+      background: transparent;
+      padding: 0;
+      
+      bottom: 30rem;
+      left: 70rem;
+
+      button {
+        width: auto;
+        height: 5rem;
+        padding: 0 4rem;
+      }
+    }
+  }
+}
+
+// Desktop
+@media (min-width: 1440px) {
+  .candidate-list {
+    ul {
+      li {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        div {
+          button {
+            margin-left: 1rem;
+          }
+        }
+      }
+    }
+
+    > div {
+      background: transparent;
+      padding: 0;
+      
+      bottom: 30rem;
+      left: 70rem;
+
+      button {
+        width: auto;
+        height: 5rem;
+        padding: 0 4rem;
+      }
+    }
   }
 }
