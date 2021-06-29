@@ -56,28 +56,34 @@
       margin: auto;
       width: 100%;
 
-      label {
-        input {
-          padding: 1.3rem 0;
-          font-size: 2.5rem;
-          font-weight: 600;
-          color: #363443;
-          background: transparent;
-          border: 0;
-          border-bottom: .5rem solid #363443;
-          width: 100%;
-          outline: none;
-          
-          &.erro {
-            border-bottom-color: #FF2358;
-          }
-    
-          &:focus {
-            border-bottom: .5rem solid #15F7D9;
-            color: #15F7D9;
+      div {
+        label {
+          input {
+            padding: 1.3rem 0;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #363443;
+            background: transparent;
+            border: 0;
+            border-bottom: .5rem solid #363443;
+            width: 100%;
+            outline: none;
+            
+            &.erro {
+              border-bottom-color: #FF2358;
+            }
+      
+            &:focus {
+              border-bottom: .5rem solid #15F7D9;
+              color: #15F7D9;
+            }
+
+            &:last-child {
+              margin-top: 2rem;
+            }
           }
         }
-
+        
         p {
           margin-top: 1.3rem;
           font-size: 1.4rem;
@@ -121,8 +127,8 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-  
-        label {
+
+        div {
           width: 50%;
         }
   
@@ -141,6 +147,49 @@
 }
 
 // Desktop
+@media (min-width: 1024px) {
+  #page-register {
+    header {
+      height: 2rem;
+      margin: 0;
+      display: flex;
+  
+      img {
+        height: 100%;
+      }
+    }
+
+    main {
+      justify-content: space-evenly;
+
+      > div {
+        width: 75%;
+      }
+
+      form {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+  
+        div {
+          width: 50%;
+        }
+  
+        > button {
+          width: auto;
+          height: 4.5rem;
+          padding: 0 4rem;
+        }
+      }
+    }
+    
+    footer {
+      display: block;
+    }
+  }
+}
+
 @media (min-width: 1440px) {
   #page-register {
     header {
@@ -166,7 +215,7 @@
         align-items: center;
         justify-content: space-between;
   
-        label {
+        div {
           width: 50%;
         }
   

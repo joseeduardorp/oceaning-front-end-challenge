@@ -100,6 +100,44 @@
 }
 
 // Desktop
+@media (min-width: 1024px) {
+  #page-home {
+    header {
+      height: 2rem;
+      margin: 0;
+      display: flex;
+  
+      img {
+        height: 100%;
+      }
+    }
+  
+    main {
+      align-items: center;
+      justify-content: space-evenly;
+
+      > div {
+        width: 75%;
+
+        h2 {
+          margin: 1.3rem;
+        }
+      }
+
+      > button {
+        height: 5rem;
+        padding: 0 4rem;
+        width: auto;
+        margin: 0;
+      }
+    }
+
+    footer {
+      margin: 0;
+    }
+  }
+}
+
 @media (min-width: 1440px) {
   #page-home {
     header {

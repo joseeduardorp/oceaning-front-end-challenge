@@ -4,9 +4,9 @@ import arrow from '../../assets/arrow-black.svg';
 
 import './styles.scss';
 
-export function CandidateList({ list, isActived, activeModal }) {
+export function CandidateList({ list }) {
   return (
-    <div className={`candidate-list ${isActived ? "actived" : ""}`}>
+    <div className="candidate-list">
       <ul>
         {list.map(({ name, email, publishedAt, skills}, index) => {
           return (

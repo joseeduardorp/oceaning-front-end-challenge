@@ -114,6 +114,14 @@
 
 
 // Desktop
+@media (min-width: 1024px) {
+  .skill-list {
+    height: 10%;
+    width: 55%;
+    left: 4rem;
+  }
+}
+
 @media (min-width: 1440px) {
   .skill-list {
     height: 10%;

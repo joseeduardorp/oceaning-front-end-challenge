@@ -5,7 +5,7 @@ import chevronsDown from '../../assets/chevrons-down.svg';
 
 import './styles.scss';
 
-export function SkillsList({ list, isActived, onActiveModal }) {
+export function SkillsList({ list, isActived, onActiveModal, onRemoveSkill }) {
   return (
     <div
       className={cx(
@@ -36,7 +36,9 @@ export function SkillsList({ list, isActived, onActiveModal }) {
           return (
             <li key={index}>
               <strong>{value}</strong>
-              <button>remover</button>  
+              <button onClick={() => onRemoveSkill(index)}>
+                remover
+              </button>
             </li>
           );
         })}

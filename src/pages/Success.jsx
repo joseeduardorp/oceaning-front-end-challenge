@@ -1,4 +1,7 @@
+import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+
+import { candidatos } from '../candidates';
 
 import { Share } from '../components/Share/index';
 
@@ -15,6 +18,12 @@ export function Success() {
 
     history.push('/list');
   }
+
+  useEffect(() => {
+    const candidato = JSON.parse(sessionStorage.getItem('candidato'));
+
+    candidatos.unshift(candidato);
+  }, [])
 
   return (
     <div id="page-success">

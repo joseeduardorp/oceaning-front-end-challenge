@@ -4,30 +4,47 @@ import { useHistory } from 'react-router-dom';
 import { Button } from '../components/Button/index';
 import { Share } from '../components/Share/index';
 
+// import { candidatos } from '../candidates';
+
 import logo from '../assets/logo.png';
 import arrow from '../assets/arrow-black.svg';
 
 import '../styles/pages/register.scss';
 
+const candidateTemplate = {
+  name: '',
+  email: '',
+  publishedAt: '29/06/2021',
+  skills: [],
+}
+
 export function Register() {
   const [erro, setErro] = useState(false);
-  const [name, setName] = useState('');
-  // const [email, setEmail] = useState('');
+  const [candidate, setCandidate] = useState(candidateTemplate);
   const history = useHistory();
 
-  function handleSubmitName(event) {
+  function handleInputChange(event) {
+    const field = event.target.name;
+    const value = event.target.value;
+
+    const newCandidate = {
+      [field]: value
+    };
+
+    setCandidate(({...candidate, ...newCandidate}));
+  }
+
+  function handleSubmit(event) {
     event.preventDefault();
 
-    if (name.trim() === '') {
+    if (candidate.name.trim() === '' || candidate.email.trim() === '') {
       setErro(true);
       return;
     }
 
+    sessionStorage.setItem('candidato', JSON.stringify(candidate));
+    
     history.push('/skills');
-  }
-
-  function handleChange(event) {
-    setName(event.target.value);
   }
 
   return (
@@ -46,20 +63,36 @@ export function Register() {
           </p>
         </div>
         
-        <form onSubmit={handleSubmitName}>
-          <label htmlFor="nome">
-            <input
-              id="nome"
-              type="text"
-              placeholder="Digite seu nome"
-              className={erro ? "erro" : ""}
-              onFocus={() => setErro(false)}
-              onChange={handleChange}
-              value={name}
-            />
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="name">
+              <input
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Digite seu nome"
+                className={erro ? "erro" : ""}
+                onFocus={() => setErro(false)}
+                onChange={event => handleInputChange(event)}
+                value={candidate.name}
+              />
+            </label>
+            
+            <label htmlFor="email">
+              <input
+                id="email"
+                name="email"
+                type="text"
+                placeholder="Digite seu email"
+                className={erro ? "erro" : ""}
+                onFocus={() => setErro(false)}
+                onChange={event => handleInputChange(event)}
+                value={candidate.email}
+              />
+            </label>
 
-            {erro && (<p>Preencha este campo</p>)}
-          </label>
+            {erro && (<p>Preencha estes campos</p>)}
+          </div>
 
           <Button type="submit">
             Continuar <img src={arrow} alt="arrow" />

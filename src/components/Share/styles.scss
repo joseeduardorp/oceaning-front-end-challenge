@@ -61,6 +61,40 @@
 }
 
 // Desktop
+@media (min-width: 1024px) {
+  .share-field {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-areas: 
+    'share logo'
+    'link logo';
+    text-align: right;
+
+    position: absolute;
+    top: 4rem;
+    right: 4rem;
+
+    img {
+      grid-area: logo;
+      height: 3rem;
+    }
+  
+    div {
+      text-align: right;
+      
+      > span {
+        grid-area: share;
+        font-size: 1rem;
+      }
+    
+      a {
+        grid-area: link;
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
 @media (min-width: 1440px) {
   .share-field {
     display: grid;

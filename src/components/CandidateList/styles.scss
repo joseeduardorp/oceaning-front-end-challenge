@@ -133,8 +133,8 @@
       background: transparent;
       padding: 0;
       
-      bottom: 30rem;
-      left: 70rem;
+      bottom: 65%;
+      left: 73%;
 
       button {
         width: auto;
@@ -146,6 +146,42 @@
 }
 
 // Desktop
+@media (min-width: 1024px) {
+  .candidate-list {
+    ul {
+      li {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        div {
+          button {
+            margin-left: 1rem;
+          }
+        }
+      }
+    }
+
+    > div {
+      background: transparent;
+      padding: 0;
+      
+      bottom: 65%;
+      left: 73%;
+
+      button {
+        width: auto;
+        height: 5rem;
+        padding: 0 4rem;
+      }
+    }
+  }
+}
+
 @media (min-width: 1440px) {
   .candidate-list {
     ul {
@@ -170,8 +206,8 @@
       background: transparent;
       padding: 0;
       
-      bottom: 30rem;
-      left: 70rem;
+      bottom: 65%;
+      left: 73%;
 
       button {
         width: auto;

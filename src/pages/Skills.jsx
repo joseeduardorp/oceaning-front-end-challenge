@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import skillsList from '../data';
+import skillsList from '../skills';
 
 import { Button } from '../components/Button/index';
 import { Skill } from '../components/Skill/index';
@@ -18,18 +18,22 @@ export function Skills() {
   const [filteredSkills, setFilteredSkills] = useState([]);
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [skillInputValue, setSkillInputValue] = useState('');
+  const [candidate, setCandidate] = useState({});
   const [erro, setErro] = useState(false);
+  const [activeModal, setActiveModal] = useState(false);
+  
   const history = useHistory();
 
-  const [activeModal, setActiveModal] = useState(false);
-
-  function handleSubmitSkills(event) {
+  function handleSubmit(event) {
     event.preventDefault();
 
     if (selectedSkills.length === 0) {
       setErro(true);
       return;
     }
+
+    candidate.skills = selectedSkills;
+    sessionStorage.setItem('candidato', JSON.stringify(candidate));
 
     history.push('/success');
   }
@@ -55,6 +59,21 @@ export function Skills() {
     setActiveModal(!activeModal);
   }
 
+  function handleRemoveSkill(index) {
+    const removedSelectedSkills = selectedSkills.slice();
+    removedSelectedSkills.splice(index, 1);
+
+    setSelectedSkills(removedSelectedSkills);
+    setActiveModal(false);
+  }
+
+  useEffect(() => {
+    const candidato = JSON.parse(sessionStorage.getItem('candidato'));
+
+    setCandidate(candidato);
+    setSelectedSkills(candidato.skills);
+  }, [])
+
   return (
     <div id="page-skills">
       <header>
@@ -63,14 +82,14 @@ export function Skills() {
 
       <main className="register">
         <div>
-          <h3>Olá, fulano</h3>
+          <h3>Olá, {candidate.name}</h3>
           <h4>Quais são suas habilidades?</h4>
           <p>
             Nos diga algumas de suas habilidades técnicas para que possamos avaliá-lo.
           </p>
         </div>
 
-        <form onSubmit={handleSubmitSkills}>
+        <form onSubmit={handleSubmit}>
           <label htmlFor="skill">
             <input
               id="skill"
@@ -109,6 +128,7 @@ export function Skills() {
         list={selectedSkills}
         isActived={activeModal}
         onActiveModal={handleActiveModal}
+        onRemoveSkill={handleRemoveSkill}
       />
 
       <footer>
