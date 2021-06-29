@@ -1,14 +1,24 @@
 const skills = [
+  "HTML5",
+  "CSS3",
+  "Javascript",
   "React JS",
   "React Native",
+  "NodeJS",
+  "SASS",
   "PHP",
   "Java",
-  "C#",
+  "C",
   "C++",
+  "C#",
   "Ruby",
-  "CSS3",
-  "HTML5",
-  "NodeJS"
+  "Python",
+  "Julia",
+  "Lua",
+  "Typescript",
+  "Laravel",
+  "Angular",
+  "Vue JS",
 ]
 
 export default skills
