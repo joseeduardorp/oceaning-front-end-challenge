@@ -14,7 +14,7 @@ Plataforma simples para cadastro de dev's.
 
 ## Objetivo
 
-Projeto desenvolvido como parte do processo seletivo para da [Oceaning](https://www.instagram.com/theoceaning/) para a vaga de desenvolvedor front-end.
+Projeto desenvolvido como parte do processo seletivo da [Oceaning](https://www.instagram.com/theoceaning/) para a vaga de desenvolvedor front-end.
 
 ## Como executar
 
